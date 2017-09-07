@@ -18,7 +18,7 @@
 # Your solution should be in logarithmic complexity.
 
 
-class Solution(object):
+class Solution(object):    
     def findPeakElement(self, nums):
         """
         :type nums: List[int]
@@ -28,10 +28,7 @@ class Solution(object):
         
         while left < right:
             mid = left + (right - left) / 2
-            if (mid == 0 or nums[mid - 1] < nums[mid]) and \
-               (mid + 1 == len(nums) or nums[mid] > nums[mid + 1]):
-                return mid
-            elif not (mid == 0 or nums[mid - 1] < nums[mid]):
+            if nums[mid] > nums[mid + 1]:
                 right = mid
             else:
                 left = mid + 1
